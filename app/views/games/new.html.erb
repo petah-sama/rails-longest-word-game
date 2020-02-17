@@ -1,19 +1,21 @@
-<h1>New Game</h1>
-<%#= @letters.join(' ') %>
+<div class="container">
+  <h1 class="rainbow rainbow_text_animated">New Game</h1>
+  <%#= @letters.join(' ') %>
 
-<% @letters.each do |letter| %>
-  <span style="background-color: lightblue; font-size: 50px; letter-spacing: 20px;"><%= letter %></span>
-<% end %>
+  <% @letters.each do |letter| %>
+    <span class="letters"><%= letter %></span>
+  <% end %>
 
-<div style="width: 500px">
-  <form action="score" method="post">
-    <div class="input-group mb-3">
-      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-      <%= hidden_field_tag :letters, @letters %>
-      <input type="text" name="word" class="form-control" placeholder="Write your word here please!" aria-describedby="button-addon2">
-      <div class="input-group-append">
-        <input class="btn btn-primary" type="submit" id="button-addon2">
+  <div class="answer">
+    <form action="score" method="post">
+      <div class="input-group mb-3">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters %>
+        <input type="text" name="word" class="form-control" placeholder="Write your word here please!" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <input class="btn btn-primary" type="submit" id="button-addon2">
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
